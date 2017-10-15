@@ -11,7 +11,6 @@ typedef struct box{
 	int height;
 	int width;
 	int depth;
-	int area;
 	int lex_sort;
 }box;
 
@@ -37,7 +36,6 @@ int main(int argc, char *argv[]){
 	box dimensions;
 	while(std::cin >> dimensions.height >> dimensions.width >> dimensions.depth){
 		dimensions.id = id;
-		dimensions.area = dimensions.height * dimensions.width;
 		/* Concat width + depth and save in lex_sort,
 			lex_sort will be the value used for sorting */
 		std::ostringstream aux;
@@ -50,7 +48,7 @@ int main(int argc, char *argv[]){
 	// Print vector [1...n]
 	/*for(std::vector<box>::iterator it = boxes.begin(); it != boxes.end(); ++ it){
 		std::cout << (*it).id << " " << (*it).height << " " << (*it).width << " " 
-		<< (*it).depth << " " << (*it).area << " " << (*it).lex_sort <<  std::endl;
+		<< (*it).depth << " " << (*it).lex_sort <<  std::endl;
 	}*/
 	// Sort decreasing by lex_sort
 	std::sort(boxes.begin(), boxes.end(), compare);	

@@ -59,26 +59,31 @@ int main(int argc, char *argv[]){
      	pd[i].height = boxes.at(i).height;
 		pd[i].ids.push_back(boxes.at(i).id);
 	}
+	/* PD: calculates from the bottom up */
 	for(int i=1; i<n; ++i){
 		for(int j = 0; j< i; ++j){
+			/* condition to add an element value in pd vector */
 			if(boxes.at(i).width < boxes.at(j).width && boxes.at(i).depth < boxes.at(j).depth 
 				&& pd[i].height < pd[j].height + boxes.at(i).height){
 				pd[i].height = pd[j].height + boxes.at(i).height;
-				pd[i].ids.clear();
-				pd[i].ids.push_back(boxes.at(i).id);
+				pd[i].ids.clear(); //this is necessary to print response
+				pd[i].ids.push_back(boxes.at(i).id); // add the box id of de current position
+				// add all ids of the boxes in  pd[j]
 				for(std::vector<int>::iterator it = pd[j].ids.begin(); it != pd[j].ids.end(); ++it)
 					pd[i].ids.push_back(*it);
 			}
 		}
 	}
 	int max = -1, position = -1;
+	/* Find max value */
 	for(int i=0; i<n; ++i){
 		if(max<pd[i].height){
 			max = pd[i].height;
 			position = i;
 		}
 	}
-	std::cout << max << std::endl; 
+	//std::cout << max << std::endl;
+	/* Print the boxes id's*/
 	for(std::vector<int>::iterator it = pd[position].ids.begin(); it != pd[position].ids.end(); ++it)
 		std::cout << *it << std::endl; 
 	return 0;

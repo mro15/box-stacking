@@ -15,7 +15,7 @@ typedef struct box{
 }box;
 
 /* 	The only important value for PD is the height,
-	but we keep the height to be to show in the result */
+	but we keep the ids to be to show in the result */
 typedef struct pd_vector{
 	std::vector<int> ids;
 	int height;

@@ -1,4 +1,4 @@
-## Segundo trabalho de Tópicos em Algoritmos
-## Problema de Empilhar Caixas usando Programação Dinâmica
-## Aluna: Marcela Ribeiro de Oliveira
+
+### Implementação utilizando a técnica de programação dinâmica para o Problema de Empilhar Caixas (Box Stacking Problem)
+
 
